@@ -1,0 +1,21 @@
+/* Custom styling for the form */
+.container {
+    max-width: 500px;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: transform 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: scale(1.05);
+  }
+  

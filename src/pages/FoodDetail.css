@@ -1,0 +1,20 @@
+/* Custom CSS for Food Detail page */
+
+.food-image {
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .modal-dialog {
+    max-width: 600px;
+  }
+  
+  .modal-header .close {
+    border: none;
+    background: none;
+  }
+  
+  .modal-body .form-group {
+    margin-bottom: 1rem;
+  }
+  

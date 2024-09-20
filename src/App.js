@@ -1,4 +1,3 @@
-
 import './App.css';
 import Navbar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,13 +9,17 @@ import FoodDetail from './pages/FoodDetail';
 function App() {
   return (
     <>
-      <Navbar/>
+      {/* Navbar */}
+      <Navbar />
 
-      <Routes>
-        <Route path = "/create-food" element = {<Food/>}/>
-        <Route path = "/" element = {<Home/>}/>
-        <Route path = "/food-detail/:id" element = {<FoodDetail/>}/>
-      </Routes>
+      {/* Main container with Bootstrap's container class */}
+      <div className="container mt-4">
+        <Routes>
+          <Route path="/create-food" element={<Food />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/food-detail/:id" element={<FoodDetail />} />
+        </Routes>
+      </div>
     </>
   );
 }

@@ -1,12 +1,10 @@
-
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // For custom CSS
+import './Navbar.css'; // Assuming you will add custom CSS here
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-gradient">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand d-flex align-items-center">
           <img
@@ -14,6 +12,7 @@ const Navbar = () => {
             className="logo-img"
             alt="Food App Logo"
           />
+          <span className="navbar-text ms-2">Food App</span>
         </Link>
         <button
           className="navbar-toggler"

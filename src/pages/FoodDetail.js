@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './FoodDetail.css'; // Custom CSS file
 
 const FoodDetail = () => {
     const { id } = useParams(); // Get the food ID from the URL
@@ -13,7 +14,6 @@ const FoodDetail = () => {
         price: '',
         category: ''
     });
-
 
     useEffect(() => {
         const fetchFoodDetail = async () => {
@@ -29,7 +29,8 @@ const FoodDetail = () => {
         fetchFoodDetail();
     }, [id]);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     // Function to handle form input change
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -66,27 +67,29 @@ const FoodDetail = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container my-5">
             {food && (
-                <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src={food.img} alt={food.foodTitle} className="w-full h-96 object-cover" />
-                    <div className="p-6">
-                        <h1 className="text-3xl font-bold mb-4">{food.foodTitle}</h1>
-                        <p className="text-gray-700 mb-4">{food.description}</p>
-                        <p className="text-lg font-semibold text-blue-600 mb-2">Price: ${food.price}</p>
-                        <p className="text-sm text-gray-500">Category: {food.category}</p>
-
-                        {/* Buttons for Update and Delete */}
-                        <div className="mt-6 flex space-x-4">
+                <div className="card mb-3">
+                    <img src={food.img} className="card-img-top food-image" alt={food.foodTitle} />
+                    <div className="card-body">
+                        <h5 className="card-title">{food.foodTitle}</h5>
+                        <p className="card-text">{food.description}</p>
+                        <p className="card-text">
+                            <strong>Price: </strong>${food.price}
+                        </p>
+                        <p className="card-text">
+                            <small className="text-muted">Category: {food.category}</small>
+                        </p>
+                        <div className="d-flex gap-3">
                             <button
                                 onClick={() => setShowModal(true)}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+                                className="btn btn-primary"
                             >
                                 Update
                             </button>
                             <button
                                 onClick={handleDelete}
-                                className="bg-red-600 text-white px-4 py-2 rounded-lg"
+                                className="btn btn-danger"
                             >
                                 Delete
                             </button>
@@ -97,81 +100,95 @@ const FoodDetail = () => {
 
             {/* Modal for Update */}
             {showModal && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white rounded-lg p-6 w-full max-w-lg">
-                        <h2 className="text-2xl font-bold mb-4">Update Food Item</h2>
-                        <form onSubmit={handleUpdate}>
-                            <div className="mb-5">
-                                <label className="block mb-2 text-sm font-medium text-gray-900">Title</label>
-                                <input
-                                    type="text"
-                                    name="foodTitle"
-                                    value={updatedFood.foodTitle}
-                                    onChange={handleInputChange}
-                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-5">
-                                <label className="block mb-2 text-sm font-medium text-gray-900">Description</label>
-                                <input
-                                    type="text"
-                                    name="description"
-                                    value={updatedFood.description}
-                                    onChange={handleInputChange}
-                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-5">
-                                <label className="block mb-2 text-sm font-medium text-gray-900">Category</label>
-                                <input
-                                    type="text"
-                                    name="category"
-                                    value={updatedFood.category}
-                                    onChange={handleInputChange}
-                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-5">
-                                <label className="block mb-2 text-sm font-medium text-gray-900">Image URL</label>
-                                <input
-                                    type="text"
-                                    name="img"
-                                    value={updatedFood.img}
-                                    onChange={handleInputChange}
-                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-5">
-                                <label className="block mb-2 text-sm font-medium text-gray-900">Price</label>
-                                <input
-                                    type="number"
-                                    name="price"
-                                    value={updatedFood.price}
-                                    onChange={handleInputChange}
-                                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                                    required
-                                />
-                            </div>
-                            <div className="flex justify-end space-x-4">
+                <div className="modal show d-block" tabIndex="-1" role="dialog" aria-modal="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Update Food Item</h5>
                                 <button
                                     type="button"
+                                    className="close"
                                     onClick={() => setShowModal(false)}
-                                    className="bg-gray-600 text-white px-4 py-2 rounded-lg"
+                                    aria-label="Close"
                                 >
-                                    Cancel
-                                </button>
-                                <button
-                                    type="submit"
-                                    className="bg-blue-600 text-white px-4 py-2 rounded-lg"
-                                >
-                                    Update
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                        </form>
+                            <div className="modal-body">
+                                <form onSubmit={handleUpdate}>
+                                    <div className="form-group">
+                                        <label>Title</label>
+                                        <input
+                                            type="text"
+                                            name="foodTitle"
+                                            value={updatedFood.foodTitle}
+                                            onChange={handleInputChange}
+                                            className="form-control"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Description</label>
+                                        <input
+                                            type="text"
+                                            name="description"
+                                            value={updatedFood.description}
+                                            onChange={handleInputChange}
+                                            className="form-control"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Category</label>
+                                        <input
+                                            type="text"
+                                            name="category"
+                                            value={updatedFood.category}
+                                            onChange={handleInputChange}
+                                            className="form-control"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Image URL</label>
+                                        <input
+                                            type="text"
+                                            name="img"
+                                            value={updatedFood.img}
+                                            onChange={handleInputChange}
+                                            className="form-control"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Price</label>
+                                        <input
+                                            type="number"
+                                            name="price"
+                                            value={updatedFood.price}
+                                            onChange={handleInputChange}
+                                            className="form-control"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="d-flex justify-content-end">
+                                        <button
+                                            type="button"
+                                            className="btn btn-secondary mr-2"
+                                            onClick={() => setShowModal(false)}
+                                        >
+                                            Cancel
+                                        </button>
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary"
+                                        >
+                                            Update
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}

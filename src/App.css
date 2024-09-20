@@ -1,0 +1,16 @@
+/* App.css */
+
+/* Add custom global styles here */
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    padding-top: 20px;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem; /* Same as Bootstrap's mt-4 */
+  }
+  

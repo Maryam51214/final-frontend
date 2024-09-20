@@ -1,33 +1,33 @@
 import React from 'react';
+import './ScrollToTopButton.css'; // Assuming you'll create custom CSS
 
 const ScrollToTopButton = () => {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-    return (
-        <button
-            onClick={scrollToTop}
-            className="fixed bottom-4 right-4 bg-blue-600 text-white rounded-full p-3 shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-110"
-            style={{ zIndex: 1000 }}
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-            >
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                />
-            </svg>
-        </button>
-    );
+  return (
+    <button
+      onClick={scrollToTop}
+      className="btn btn-primary scroll-to-top-btn"
+      style={{ zIndex: 1000 }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="bi bi-arrow-up"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+        width="24"
+        height="24"
+        aria-hidden="true"
+      >
+        <path
+          fillRule="evenodd"
+          d="M8 12a.5.5 0 0 0 .5-.5v-7.793l3.646 3.647a.5.5 0 0 0 .708-.708l-4.5-4.5a.5.5 0 0 0-.708 0l-4.5 4.5a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </button>
+  );
 };
 
 export default ScrollToTopButton;
