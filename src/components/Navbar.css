@@ -1,4 +1,161 @@
+/* Logo styling */
+.logo-img {
+  height: 40px;
+  border-radius: 10px;
+}
 
+/* Ensure link buttons are always visible */
+.navbar-nav .nav-link {
+  color: #333; /* Visible in light mode */
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #f8f9fa; /* Visible in dark mode */
+}
+
+/* Hover effect for nav links */
+.navbar-nav .nav-link:hover {
+  color: #ff6f61; /* Mauve-like color */
+}
+
+/* Dropdown menu style */
+.dropdown-menu {
+  transition: all 0.3s ease;
+}
+
+/* Toggle button styling */
+.toggle-btn {
+  position: relative;
+  padding: 10px 40px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.toggle-btn .slider {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: all 0.4s ease;
+}
+
+.toggle-btn.dark .slider {
+  left: 80px;
+  background-color: #ff6f61; /* Mauve color for dark mode */
+}
+
+.toggle-btn.light .slider {
+  background-color: #8dc63f; /* Light green color for light mode */
+}
+
+/* Hover effect for toggle button */
+.toggle-btn:hover {
+  background-color: #3f8ad4;
+  cursor: pointer;
+}
+
+/* Navbar responsiveness */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #12487e; /* Navbar background color in collapsed mode */
+    padding: 10px;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+}
+
+
+/* Global Styles for Light and Dark Mode
+body {
+  transition: background-color 0.3s, color 0.3s;
+  background: linear-gradient(to right,#f0bdaa,#69b1b5, #f39b7b);
+}
+
+.dark-mode {
+  background-color: #121212; 
+  color: #ffffff; 
+}
+
+.navbar {
+  transition: background-color 0.3s;
+  
+}
+
+.navbar-dark {
+  background-color: #343a40;
+}
+.nav{
+  background-color: #eba287;
+}
+.navbar-light {
+  background-color: #ffffff; 
+}
+
+
+.food-card {
+  background-color: #ffffff;
+  transition: background-color 0.3s;
+}
+
+.dark-mode .food-card {
+  background-color: #1e1e1e; 
+  color: #ffffff;
+}
+.logo-img {
+  height: 60px;
+  border-radius: 50px;
+  width: auto;
+  margin-left: 70px;
+}  */
+
+/* body{
+  background: linear-gradient(to right,#f0bdaa,#69b1b5, #f39b7b);
+}
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+.nav{
+  background-color: #eba287;
+}
+.navbar-brand{
+  color: rgb(26, 25, 25);
+  font-size: x-large !important;
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(251, 251, 251, 0.5); 
+}
+
+.navbar-dark .navbar-brand {
+  color: #ffffff;
+}
+.logo-img {
+  height: 60px;
+  border-radius: 50px;
+  width: auto;
+  margin-left: 70px;
+} */
+
+
+
+
+/* 
 .logo-img {
     height: 40px;
     width: auto;
@@ -17,4 +174,4 @@
   .nav-link:hover {
     color: #0056b3 !important;
   }
-  
+   */

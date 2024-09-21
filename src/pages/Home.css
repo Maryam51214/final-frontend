@@ -1,36 +1,35 @@
-/* Custom grid to ensure 3 items per row */
-.food-grid {
-    display: grid;
-    grid-template: repeat(3, 1fr); /* 3 items per row */
-    gap: 50px; /* Spacing between food items */
-    margin-bottom: 40px;
-}
-
-@media (max-width: 768px) {
-    .food-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
-    }
-}
-
-@media (max-width: 576px) {
-    .food-grid {
-        grid-template-columns: 1fr; /* 1 item per row on small screens */
-    }
-}
-
-/* Additional styling for the food cards */
 .food-card {
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    background: linear-gradient(to right,#f0bdaa,#69b1b5, #f39b7b);
+    border-color: chocolate;
+    border-width: 2mm;
+    border-style: dotted;
+    
+    
+    height: 100%; /* Ensures the card takes up the full height */
 }
 
 .food-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .food-img {
-    height: 200px; /* Set a fixed height for images to make them uniform */
-    object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
+    height: 250px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensures image maintains aspect ratio */
+   
+}
+
+.row {
+    margin-left:10;
+    margin-right: 10;
+}
+
+/* Add padding between cards */
+.col-12,
+.col-sm-6,
+.col-md-4 {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 

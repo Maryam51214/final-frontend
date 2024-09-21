@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './FoodDetail.css'; // Custom CSS file
 
 const FoodDetail = () => {
     const { id } = useParams(); // Get the food ID from the URL
@@ -67,23 +66,21 @@ const FoodDetail = () => {
     };
 
     return (
-        <div className="container my-5">
+        <div className="container mt-5">
             {food && (
                 <div className="card mb-3">
-                    <img src={food.img} className="card-img-top food-image" alt={food.foodTitle} />
+                    <img src={food.img} alt={food.foodTitle} className="card-img-top" />
                     <div className="card-body">
-                        <h5 className="card-title">{food.foodTitle}</h5>
+                        <h1 className="card-title">{food.foodTitle}</h1>
                         <p className="card-text">{food.description}</p>
-                        <p className="card-text">
-                            <strong>Price: </strong>${food.price}
-                        </p>
-                        <p className="card-text">
-                            <small className="text-muted">Category: {food.category}</small>
-                        </p>
-                        <div className="d-flex gap-3">
+                        <p className="h5 text-primary">${food.price}</p>
+                        <p className="text-muted">Category: {food.category}</p>
+
+                        {/* Buttons for Update and Delete */}
+                        <div className="mt-3">
                             <button
                                 onClick={() => setShowModal(true)}
-                                className="btn btn-primary"
+                                className="btn btn-primary me-2"
                             >
                                 Update
                             </button>
@@ -100,24 +97,17 @@ const FoodDetail = () => {
 
             {/* Modal for Update */}
             {showModal && (
-                <div className="modal show d-block" tabIndex="-1" role="dialog" aria-modal="true">
-                    <div className="modal-dialog" role="document">
+                <div className="modal show" style={{ display: 'block' }}>
+                    <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title">Update Food Item</h5>
-                                <button
-                                    type="button"
-                                    className="close"
-                                    onClick={() => setShowModal(false)}
-                                    aria-label="Close"
-                                >
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={handleUpdate}>
-                                    <div className="form-group">
-                                        <label>Title</label>
+                                    <div className="mb-3">
+                                        <label className="form-label">Title</label>
                                         <input
                                             type="text"
                                             name="foodTitle"
@@ -127,8 +117,8 @@ const FoodDetail = () => {
                                             required
                                         />
                                     </div>
-                                    <div className="form-group">
-                                        <label>Description</label>
+                                    <div className="mb-3">
+                                        <label className="form-label">Description</label>
                                         <input
                                             type="text"
                                             name="description"
@@ -138,8 +128,8 @@ const FoodDetail = () => {
                                             required
                                         />
                                     </div>
-                                    <div className="form-group">
-                                        <label>Category</label>
+                                    <div className="mb-3">
+                                        <label className="form-label">Category</label>
                                         <input
                                             type="text"
                                             name="category"
@@ -149,8 +139,8 @@ const FoodDetail = () => {
                                             required
                                         />
                                     </div>
-                                    <div className="form-group">
-                                        <label>Image URL</label>
+                                    <div className="mb-3">
+                                        <label className="form-label">Image URL</label>
                                         <input
                                             type="text"
                                             name="img"
@@ -160,8 +150,8 @@ const FoodDetail = () => {
                                             required
                                         />
                                     </div>
-                                    <div className="form-group">
-                                        <label>Price</label>
+                                    <div className="mb-3">
+                                        <label className="form-label">Price</label>
                                         <input
                                             type="number"
                                             name="price"
@@ -171,10 +161,10 @@ const FoodDetail = () => {
                                             required
                                         />
                                     </div>
-                                    <div className="d-flex justify-content-end">
+                                    <div className="modal-footer">
                                         <button
                                             type="button"
-                                            className="btn btn-secondary mr-2"
+                                            className="btn btn-secondary"
                                             onClick={() => setShowModal(false)}
                                         >
                                             Cancel

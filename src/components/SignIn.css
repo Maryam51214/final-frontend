@@ -1,0 +1,28 @@
+/* SignIn.css */
+.signin-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.signin-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.alert {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .signin-container {
+    padding: 10px;
+  }
+
+  .signin-title {
+    font-size: 1.5rem;
+  }
+}
